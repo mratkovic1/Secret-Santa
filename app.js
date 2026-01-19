@@ -95,7 +95,7 @@ function uTitleCase(tekst) {
 }
 
 /**
- * Uklanja duplikate iz liste uposlenika po polju `kljuc`.
+ * Uklanja duplikate iz liste uposlenika po polju 'kljuc'.
  *
  * @param {Array<{kljuc: string, imeZaPrikaz: string}>} lista
  *   Lista uposlenika.
