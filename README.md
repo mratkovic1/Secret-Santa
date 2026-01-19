@@ -32,14 +32,17 @@ Cilj projekta je demonstracija rada sa DOM-om, obrade korisničkog unosa, upravl
 
 ## Struktura projekta
 
+```text
 secret-santa/
 ├── index.html
 ├── styles.css
 ├── app.js
-└── assets/
-└── djedmraz.jpg
+├── assets/
+│   └── djedmraz.jpg
+ ```
 
 Sve putanje u projektu su relativne, što omogućava pokretanje aplikacije na drugom računaru bez izmjena u kodu.
+
 
 ---
 
@@ -95,7 +98,11 @@ zadnje generisanih parova. Pristup `localStorage`-u vrši isključivo aplikacion
 što osigurava jasnu separaciju odgovornosti između komponenti.
 
 Dijagram arhitekture izrađen je u alatu draw.io i priložen kao dio tehničke dokumentacije.
+<div align="center">
 
+<img src="docs/arhitektura.png" width="700">
+
+</div>
 
 ## Sekvencijski dijagram
 
@@ -111,7 +118,11 @@ radi prikaza ažurirane liste ili generisanih parova.
 
 Dijagram jasno razdvaja odgovornosti između UI-a, logike aplikacije i sloja za
 pohranu podataka, što olakšava razumijevanje toka aplikacije i njene arhitekture.
+<div align="center">
 
+<img src="docs/sekvencijskidijagram.jpg" width="700">
+
+</div>
 
 ---
 
