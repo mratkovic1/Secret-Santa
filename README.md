@@ -113,6 +113,7 @@ zadnje generisanih parova. Pristup `localStorage`-u vrši isključivo aplikacion
 Dijagram arhitekture izrađen je u alatu draw.io i priložen kao dio tehničke dokumentacije.
 <div align="center">
 
+<img src="docs/arhitektura.png" width="700">
 <img src=".../arhitektura.png" width="700">
 
 </div>
@@ -132,7 +133,7 @@ radi prikaza ažurirane liste ili generisanih parova.
 Dijagram jasno razdvaja odgovornosti između UI-a, logike aplikacije i sloja za
 pohranu podataka, što olakšava razumijevanje toka aplikacije i njene arhitekture.
 <div align="center">
-
+<img src="docs/sekvencijskidijagram.jpg" width="700">
 <img src=".../sekvencijskidijagram.jpg" width="700">
 
 </div>
