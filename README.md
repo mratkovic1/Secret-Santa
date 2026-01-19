@@ -34,11 +34,24 @@ Cilj projekta je demonstracija rada sa DOM-om, obrade korisničkog unosa, upravl
 
 ```text
 secret-santa/
-├── index.html
-├── styles.css
-├── app.js
 ├── assets/
 │   └── djedmraz.jpg
+├── docs/
+│   ├── jsdoc/
+│   │   ├── fonts/
+│   │   ├── scripts/
+│   │   ├── styles/
+│   │   ├── app.js.html
+│   │   ├── global.html
+│   │   └── index.html
+│   ├── arhitektura.png
+│   └── sekvencijskidijagram.jpg
+├── app.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── styles.css
  ```
 
 Sve putanje u projektu su relativne, što omogućava pokretanje aplikacije na drugom računaru bez izmjena u kodu.
@@ -100,7 +113,7 @@ zadnje generisanih parova. Pristup `localStorage`-u vrši isključivo aplikacion
 Dijagram arhitekture izrađen je u alatu draw.io i priložen kao dio tehničke dokumentacije.
 <div align="center">
 
-<img src="docs/arhitektura.png" width="700">
+<img src=".../arhitektura.png" width="700">
 
 </div>
 
@@ -120,7 +133,7 @@ Dijagram jasno razdvaja odgovornosti između UI-a, logike aplikacije i sloja za
 pohranu podataka, što olakšava razumijevanje toka aplikacije i njene arhitekture.
 <div align="center">
 
-<img src="docs/sekvencijskidijagram.jpg" width="700">
+<img src=".../sekvencijskidijagram.jpg" width="700">
 
 </div>
 
@@ -154,3 +167,31 @@ pohranu podataka, što olakšava razumijevanje toka aplikacije i njene arhitektu
 - Naprednija pravila uparivanja
 
 ---
+## Dokumentacija
+
+Tehnička dokumentacija aplikacije generisana je pomoću alata **JSDoc**.
+
+Dokumentacija sadrži:
+- opis strukture projekta
+- opis aplikacione logike
+- dokumentovane JavaScript funkcije
+- arhitekturni i sekvencijski dijagram
+
+### Lokacija dokumentacije
+
+Generisana HTML dokumentacija nalazi se u folderu: docs/jsdoc/
+
+Glavna ulazna stranica dokumentacije je: docs/jsdoc/index.html
+
+### Kako otvoriti dokumentaciju
+
+1. Otvoriti root folder projekta ('secret-santa')
+2. Doći u u folder 'docs/jsdoc'
+3. Otvoriti fajl 'index.html' u web pregledniku
+
+Alternativno, dokumentaciju je moguće otvoriti iz terminala:
+
+```bash
+start docs/jsdoc/index.html
+
+```

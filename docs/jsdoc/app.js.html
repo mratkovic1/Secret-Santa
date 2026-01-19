@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: app.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * app.js — Logika za Secret Santa aplikaciju
  *
  * Opis
@@ -97,9 +125,9 @@ function uTitleCase(tekst) {
 /**
  * Uklanja duplikate iz liste uposlenika po polju `kljuc`.
  *
- * @param {Array<{kljuc: string, imeZaPrikaz: string}>} lista
+ * @param {Array&lt;{kljuc: string, imeZaPrikaz: string}>} lista
  *   Lista uposlenika.
- * @returns {Array<{kljuc: string, imeZaPrikaz: string}>}
+ * @returns {Array&lt;{kljuc: string, imeZaPrikaz: string}>}
  *   Lista bez duplikata (zadržava prvi unos za svaki ključ).
  */
 
@@ -121,12 +149,12 @@ function ukloniDuplikate(lista) {
  *
  * Parameters
  * ----------
- * lista : Array<Object>
+ * lista : Array&lt;Object>
  *     Lista objekata oblika { kljuc, imeZaPrikaz }.
  *
  * Returns
  * -------
- * Array<Object>
+ * Array&lt;Object>
  *     Lista bez duplikata (zadržava prvi).
  */
 
@@ -222,7 +250,7 @@ function spremiUposlenike() {
  *
  * Returns
  * -------
- * Array<Object>
+ * Array&lt;Object>
  *     Lista uposlenika ili prazna lista ako ne postoji/greška.
  */
 function ucitajUposlenike() {
@@ -307,15 +335,15 @@ function ukloniJednog(kljuc) {
  *
  * Parameters
  * ----------
- * listaObjekata : Array<Object>
+ * listaObjekata : Array&lt;Object>
  *     Lista uposlenika (može sadržavati duplikate).
  *
  * Returns
  * -------
  * Object
  *     Rezultat:
- *       - parovi: Array<{koIzvlaci: Uposlenik, kogaJeIzvukao: Uposlenik}>
- *       - bezPara: Array<Uposlenik>
+ *       - parovi: Array&lt;{koIzvlaci: Uposlenik, kogaJeIzvukao: Uposlenik}>
+ *       - bezPara: Array&lt;Uposlenik>
  *
  * Notes
  * -----
@@ -326,7 +354,7 @@ function ukloniJednog(kljuc) {
 function generisiParove(listaObjekata) {
   const jedinstveni = ukloniDuplikate(listaObjekata);
 
-  if (jedinstveni.length < 2) {
+  if (jedinstveni.length &lt; 2) {
     return { parovi: [], bezPara: jedinstveni };
   }
 
@@ -335,7 +363,7 @@ function generisiParove(listaObjekata) {
   const parovi = [];
   let bezPara = [];
 
-  for (let i = 0; i < pool.length; i += 2) {
+  for (let i = 0; i &lt; pool.length; i += 2) {
     const a = pool[i];
     const b = pool[i + 1];
 
@@ -403,7 +431,7 @@ function prikaziRezultat(rez) {
   prikazRezultata.innerHTML = "";
 
   if (!rez) {
-    prikazRezultata.innerHTML = '<p class="small">Još nema generisanih parova.</p>';
+    prikazRezultata.innerHTML = '&lt;p class="small">Još nema generisanih parova.&lt;/p>';
     return;
   }
 
@@ -415,13 +443,13 @@ function prikaziRezultat(rez) {
   naslov.textContent = "Uparivanje";
   wrap.appendChild(naslov);
 
-  if (parovi && parovi.length) {
+  if (parovi &amp;&amp; parovi.length) {
     const ul = document.createElement("ul");
     ul.className = "list";
 
     for (const p of parovi) {
       const li = document.createElement("li");
-      li.innerHTML = `<strong>${p.koIzvlaci.imeZaPrikaz}</strong> -> ${p.kogaJeIzvukao.imeZaPrikaz}`;
+      li.innerHTML = `&lt;strong>${p.koIzvlaci.imeZaPrikaz}&lt;/strong> -> ${p.kogaJeIzvukao.imeZaPrikaz}`;
       ul.appendChild(li);
     }
 
@@ -433,7 +461,7 @@ function prikaziRezultat(rez) {
     wrap.appendChild(no);
   }
 
-  if (bezPara && bezPara.length) {
+  if (bezPara &amp;&amp; bezPara.length) {
     const h4 = document.createElement("h4");
     h4.textContent = "Uposlenik bez para";
     wrap.appendChild(h4);
@@ -508,3 +536,26 @@ btnGenerisi.addEventListener("click", () => {
   prikaziPoruku("Parovi generisani.", "ok");
   setTimeout(() => prikaziPoruku("", ""), 1200);
 });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#generisiParove">generisiParove</a></li><li><a href="global.html#napraviKljuc">napraviKljuc</a></li><li><a href="global.html#prikaziPoruku">prikaziPoruku</a></li><li><a href="global.html#prikaziRezultat">prikaziRezultat</a></li><li><a href="global.html#prikaziUposlenike">prikaziUposlenike</a></li><li><a href="global.html#promijesaj">promijesaj</a></li><li><a href="global.html#provjeriIme">provjeriIme</a></li><li><a href="global.html#spremiRezultat">spremiRezultat</a></li><li><a href="global.html#spremiUposlenike">spremiUposlenike</a></li><li><a href="global.html#uTitleCase">uTitleCase</a></li><li><a href="global.html#ucitajRezultat">ucitajRezultat</a></li><li><a href="global.html#ucitajUposlenike">ucitajUposlenike</a></li><li><a href="global.html#ukloniDuplikate">ukloniDuplikate</a></li><li><a href="global.html#ukloniJednog">ukloniJednog</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon Jan 19 2026 03:00:45 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "secret-santa",
+  "version": "1.0.0",
+  "description": "Secret Santa je web aplikacija za slučajno uparivanje uposlenika u parove za darivanje.\r Aplikacija omogućava unos liste uposlenika, generisanje slučajnih parova i prikaz rezultata.\r Podaci se čuvaju lokalno u pregledniku korištenjem 'localStorage', tako da ostaju dostupni i nakon ponovnog učitavanja stranice.",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mratkovic1/Secret-Santa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mratkovic1/Secret-Santa/issues"
+  },
+  "homepage": "https://github.com/mratkovic1/Secret-Santa#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.5"
+  }
+}

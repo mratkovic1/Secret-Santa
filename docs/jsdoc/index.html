@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Secret Santa</h1>
+<h2>Opis projekta</h2>
+<p>Secret Santa je web aplikacija za slučajno uparivanje uposlenika u parove za darivanje.
+Aplikacija omogućava unos liste uposlenika, generisanje slučajnih parova i prikaz rezultata.
+Podaci se čuvaju lokalno u pregledniku korištenjem 'localStorage', tako da ostaju dostupni i nakon ponovnog učitavanja stranice.</p>
+<p>Cilj projekta je demonstracija rada sa DOM-om, obrade korisničkog unosa, upravljanja stanjem aplikacije i osnovne logike u JavaScript-u.</p>
+<hr>
+<h2>Funkcionalnosti</h2>
+<ul>
+<li>Dodavanje uposlenika uz validaciju unosa</li>
+<li>Sprječavanje duplikata (ne razlikuje velika i mala slova)</li>
+<li>Brisanje pojedinačnih uposlenika i kompletne liste</li>
+<li>Generisanje slučajnih parova</li>
+<li>Prikaz uposlenika bez para (u slučaju neparnog broja unosa)</li>
+<li>Automatsko spremanje liste i zadnjih generisanih parova u 'localStorage'</li>
+</ul>
+<hr>
+<h2>Tehnologije</h2>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript (ES6+)</li>
+<li>Web Storage API ('localStorage')</li>
+</ul>
+<hr>
+<h2>Struktura projekta</h2>
+<pre class="prettyprint source lang-text"><code>secret-santa/
+├── index.html
+├── styles.css
+├── app.js
+├── assets/
+│   └── djedmraz.jpg
+</code></pre>
+<p>Sve putanje u projektu su relativne, što omogućava pokretanje aplikacije na drugom računaru bez izmjena u kodu.</p>
+<hr>
+<h2>Opis rješenja</h2>
+<h3>Unos i validacija uposlenika</h3>
+<ul>
+<li>Unos ne smije biti prazan</li>
+<li>Mora sadržati slova</li>
+<li>Dozvoljeni znakovi: slova (uključujući č, ć, đ, š, ž), razmak i crtica ('-')</li>
+<li>Zabranjeni su brojevi i specijalni znakovi</li>
+<li>Duplikati se uklanjaju normalizacijom unosa (trim, lowercase, jedinstveni razmaci)</li>
+</ul>
+<h3>Generisanje parova</h3>
+<ul>
+<li>Lista uposlenika se nasumično miješa</li>
+<li>Parovi se formiraju po dva uposlenika ('A → B')</li>
+<li>Ako postoji neparan broj uposlenika, jedan ostaje bez para i prikazuje se posebno</li>
+</ul>
+<h3>Čuvanje podataka</h3>
+<ul>
+<li>Lista uposlenika se čuva pod ključem 'secret_santa_uposlenici'</li>
+<li>Zadnje generisani parovi se čuvaju pod ključem 'secret_santa_rezultat'</li>
+</ul>
+<hr>
+<h2>Arhitektura aplikacije</h2>
+<p>Aplikacija je podijeljena na tri logičke cjeline:</p>
+<ol>
+<li>
+<p><strong>Korisnički interfejs (UI)</strong><br>
+Prikaz unosa, liste uposlenika, poruka i rezultata.</p>
+</li>
+<li>
+<p><strong>Logika aplikacije</strong><br>
+Validacija unosa, normalizacija imena, generisanje parova i upravljanje stanjem aplikacije.</p>
+</li>
+<li>
+<p><strong>Pohrana podataka</strong><br>
+Spremanje i učitavanje podataka iz 'localStorage'.</p>
+</li>
+</ol>
+<hr>
+<h2>Dijagrami</h2>
+<h2>Dijagram arhitekture</h2>
+<p>Dijagram arhitekture prikazuje osnovnu strukturu aplikacije i odnos između njenih
+glavnih komponenti: korisničkog interfejsa, aplikacione logike i sloja za pohranu podataka.</p>
+<p>Korisnički interfejs (HTML i CSS) zadužen je isključivo za prikaz podataka i prikupljanje
+korisničkih akcija, koje se dalje prosljeđuju aplikacionoj logici. Logika aplikacije,
+implementirana u JavaScript-u, obrađuje korisničke događaje, vrši validaciju i generisanje
+parova, te upravlja stanjem aplikacije.</p>
+<p>Sloj za pohranu podataka (<code>localStorage</code>) koristi se za trajno čuvanje liste uposlenika i
+zadnje generisanih parova. Pristup <code>localStorage</code>-u vrši isključivo aplikaciona logika,
+što osigurava jasnu separaciju odgovornosti između komponenti.</p>
+<p>Dijagram arhitekture izrađen je u alatu draw.io i priložen kao dio tehničke dokumentacije.</p>
+<div align="center">
+<img src="../arhitektura.png" width="700">
+</div>
+<h2>Sekvencijski dijagram</h2>
+<p>Sekvencijski dijagram prikazuje tok interakcije između korisnika, korisničkog interfejsa,
+aplikacione logike i 'localStorage' tokom dvije glavne funkcionalnosti aplikacije:
+dodavanja uposlenika i generisanja parova.</p>
+<p>Tok započinje korisničkom akcijom (unos imena ili klik na dugme), nakon čega UI
+prosljeđuje događaj aplikacionoj logici. Unutar logike se vrši validacija i
+normalizacija unosa, odnosno miješanje liste i generisanje parova. Nakon obrade,
+podaci se spremaju u 'localStorage', a rezultat se vraća korisničkom interfejsu
+radi prikaza ažurirane liste ili generisanih parova.</p>
+<p>Dijagram jasno razdvaja odgovornosti između UI-a, logike aplikacije i sloja za
+pohranu podataka, što olakšava razumijevanje toka aplikacije i njene arhitekture.</p>
+<div align="center">
+<img src="../sekvencijskidijagram.jpg" width="700">
+</div>
+<hr>
+<h2>Pokretanje aplikacije</h2>
+<h3>Opcija 1: Lokalni server (preporučeno)</h3>
+<ol>
+<li>Otvoriti projekat u Visual Studio Code</li>
+<li>Instalirati ekstenziju <strong>Live Server</strong></li>
+<li>Pokrenuti 'index.html' putem Live Servera</li>
+</ol>
+<h3>Opcija 2: Direktno pokretanje</h3>
+<ul>
+<li>Otvoriti 'index.html' u web pregledniku<br>
+(Napomena: ponašanje 'localStorage' može zavisiti od browsera)</li>
+</ul>
+<hr>
+<h2>Ograničenja</h2>
+<ul>
+<li>Aplikacija je frontend-only rješenje</li>
+<li>'localStorage' nije namijenjen za čuvanje osjetljivih podataka</li>
+<li>Podaci nisu dijeljeni između različitih uređaja ili preglednika</li>
+</ul>
+<hr>
+<h2>Moguće nadogradnje</h2>
+<ul>
+<li>Autentikacija i autorizacija korisnika</li>
+<li>Izvoz rezultata (CSV / PDF)</li>
+<li>Naprednija pravila uparivanja</li>
+</ul>
+<hr></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#generisiParove">generisiParove</a></li><li><a href="global.html#napraviKljuc">napraviKljuc</a></li><li><a href="global.html#prikaziPoruku">prikaziPoruku</a></li><li><a href="global.html#prikaziRezultat">prikaziRezultat</a></li><li><a href="global.html#prikaziUposlenike">prikaziUposlenike</a></li><li><a href="global.html#promijesaj">promijesaj</a></li><li><a href="global.html#provjeriIme">provjeriIme</a></li><li><a href="global.html#spremiRezultat">spremiRezultat</a></li><li><a href="global.html#spremiUposlenike">spremiUposlenike</a></li><li><a href="global.html#uTitleCase">uTitleCase</a></li><li><a href="global.html#ucitajRezultat">ucitajRezultat</a></li><li><a href="global.html#ucitajUposlenike">ucitajUposlenike</a></li><li><a href="global.html#ukloniDuplikate">ukloniDuplikate</a></li><li><a href="global.html#ukloniJednog">ukloniJednog</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon Jan 19 2026 03:00:45 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
