@@ -34,11 +34,15 @@ Cilj projekta je demonstracija rada sa DOM-om, obrade korisničkog unosa, upravl
 
 ```text
 secret-santa/
-├── index.html
-├── styles.css
-├── app.js
 ├── assets/
 │   └── djedmraz.jpg
+├── docs/
+│   ├── arhitektura.png
+│   └── sekvencijskidijagram.jpg
+├── app.js
+├── index.html
+├── README.md
+└── styles.css
  ```
 
 Sve putanje u projektu su relativne, što omogućava pokretanje aplikacije na drugom računaru bez izmjena u kodu.
