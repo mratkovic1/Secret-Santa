@@ -1,0 +1,94 @@
+<!--
+Secret Santa (Web aplikacija) — UI sloj
+
+Opis
+-----
+Ova stranica omogućava unos proizvoljnog broja uposlenika i generisanje slučajnih parova
+za anonimno darivanje ("Secret Santa"). Stranica je podijeljena na dva dijela:
+1) Unos i lista uposlenika (dodavanje, brisanje pojedinačno i brisanje svih)
+2) Generisanje i prikaz rezultata (parovi + eventualni uposlenik bez para)
+
+Struktura
+---------
+- #nameInput: input polje za unos imena
+- #addBtn: dodavanje imena u listu
+- #clearBtn: brisanje kompletne liste
+- #employeeList: vizuelna lista unesenih uposlenika
+- #count: broj trenutno unesenih (jedinstvenih) uposlenika
+- #genBtn: generisanje parova
+- #results: prikaz rezultata uparivanja
+- #msg: statusne poruke (validacija, potvrde)
+
+Zavisnosti
+----------
+- styles.css: stilovi i layout
+- app.js: logika unosa, localStorage, generisanje parova i prikaz
+
+Relativne putanje
+-----------------
+- Hero slika: styles.css -> background-image: url("assets/djedmraz.jpg")
+- JS: <script src="app.js"></script>
+-->
+
+
+
+<!doctype html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secret Santa</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero" role="banner">
+      <div class="heroContent">
+        <h1 class="title">Secret Santa 🎁</h1>
+        <p class="subtitle">Slučajno uparivanje uposlenika za darivanje.</p>
+      </div>
+    </header>
+
+    <main class="grid" role="main">
+      <section class="card">
+        <h3>Unos uposlenika</h3>
+        <p class="small">
+          Dodaj imena jedno po jedno. Duplikati se ignorišu (ne razlikuje velika i mala slova).
+          <br />
+          Napomena: Uvijek koristite afrikate (č, ć, đ, dž, š, ž) jer se prema tome mogu razlikovati prezimena.
+        </p>
+
+        <div class="inputRow">
+          <input id="nameInput" placeholder="npr. Šemsudin Poplava" autocomplete="off" />
+          <button id="addBtn" type="button">Dodaj</button>
+        </div>
+        <p id="msg" class="msg" aria-live="polite"></p>
+
+        <div class="badge">Trenutno: <span id="count">0</span></div>
+
+        <ul id="employeeList" class="list"></ul>
+
+        <div class="rowBtns">
+          <button id="clearBtn" type="button">Obriši sve</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Generisanje</h3>
+        <p class="small">
+          Svakim klikom dobija se nova slučajna kombinacija.
+        </p>
+        <button id="genBtn" type="button">Generiši parove</button>
+
+        <hr class="sep" />
+
+        <div id="results">
+          <p class="small">Još nema generisanih parova.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
